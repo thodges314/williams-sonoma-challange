@@ -1,21 +1,31 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 
-export default class Header extends Component {
-  static StyledDiv = styled.div`
-    width: 100%;
-    height: 120px;
-    padding-top: 10px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+const MasterDiv = styled.div`
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   `
+const TitlesDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+
+export default class Header extends Component {
   render() {
     return (
-      <Header.StyledDiv>
-      <div>Williams Sonoma</div>
-      <div>catalogue</div>
-      </Header.StyledDiv>
+      <MasterDiv>
+        <div/>
+        <TitlesDiv>
+          <div>Williams Sonoma</div>
+          <div>catalogue</div>
+        </TitlesDiv>
+        <div/>
+      </MasterDiv>
     )
   }
 }
