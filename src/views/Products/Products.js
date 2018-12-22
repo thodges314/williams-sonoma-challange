@@ -1,10 +1,25 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
 
-import {loadProductData} from 'services/loadProductData'
+import {loadProductData} from 'actions/loadProductData'
 
-export default class Products extends Component {
+const mapStateToProps = state => ({
+  productData: state.productData
+})
+
+const mapDispatchToProps = dispatch => (bindActionCreators({
+  loadProductData
+}, dispatch))
+
+class Products extends Component {
   componentDidMount () {
-    loadProductData()
+    this.props.loadProductData()
+    console.log(this.props.productData)
+  }
+  componentDidUpdate() {
+    console.log('UPDATE')
+    console.log(this.props.productData)
   }
   render() {
     return (
@@ -12,3 +27,5 @@ export default class Products extends Component {
     )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products)

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 // import logo from './logo.svg';
 // import './App.css';
 import {Header, Products} from './views'
@@ -15,4 +16,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App)
