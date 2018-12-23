@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
 import styled from 'styled-components'
+import {ProductPanel} from 'components'
+import PropTypes from 'prop-types'
 
 import {loadProductData} from 'actions/loadProductData'
 
 const mapStateToProps = state => ({
-  productData: state.productData
+  products: state.productData.groups
 })
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
@@ -19,6 +21,7 @@ const MasterDiv = styled.div`
   bottom: 0;
   width: 100%;
   overflow-y: scroll;
+  background-color: rgb(240, 240, 230);
 `
 const GridDiv = styled.div`
   display: flex;
@@ -27,19 +30,24 @@ const GridDiv = styled.div`
 `
 
 class Products extends Component {
+  static propTypes = {
+    loadProductData: PropTypes.func.isRequired,
+    productData: PropTypes.array
+  }
   componentDidMount () {
     this.props.loadProductData()
-    console.log(this.props.productData)
+    console.log(this.props.products)
   }
   componentDidUpdate() {
     console.log('UPDATE')
-    console.log(this.props.productData)
+    console.log(this.props.products)
   }
   render() {
     return (
       <MasterDiv>
         <GridDiv>
           FLARP
+          <ProductPanel />
         </GridDiv>
       </MasterDiv>
     )

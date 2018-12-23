@@ -7,6 +7,7 @@ const MasterDiv = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  background-color: rgb(240, 240, 230);
   `
 const TitlesDiv = styled.div`
   display: flex;
