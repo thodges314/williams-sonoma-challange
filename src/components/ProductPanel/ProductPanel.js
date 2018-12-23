@@ -52,11 +52,17 @@ const Description = styled.div`
 `
 
 export default class ProductPanel extends Component {
+  static propTypes = {
+    product: PropTypes.object.isRequired
+  }
   render() {
+    console.log('props in render', this.props)
+    const {name} = this.props
+    const {href} = this.props.thumbnail
     return (
       <StyledPaper>
         <PictureDiv>
-          <img src='https://www.westelm.com/weimgs/rk/images/wcm/products/201848/0001/organic-textured-towels-orange-clay-1-m.jpg'/>
+          <img src={href}/>
         </PictureDiv>
         <Description>
           <div>

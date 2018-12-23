@@ -48,7 +48,7 @@ class Products extends Component {
     return (
       <MasterDiv>
         <GridDiv>
-          {products && products.map(product => <ProductPanel product/>)}
+          {products && products.map(product => <ProductPanel {...product}/>)}
         </GridDiv>
       </MasterDiv>
     )
