@@ -27,6 +27,7 @@ const GridDiv = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  padding: 100px;
 `
 
 class Products extends Component {
@@ -43,11 +44,11 @@ class Products extends Component {
     console.log(this.props.products)
   }
   render() {
+    const {products} = this.props
     return (
       <MasterDiv>
         <GridDiv>
-          FLARP
-          <ProductPanel />
+          {products && products.map(product => <ProductPanel product/>)}
         </GridDiv>
       </MasterDiv>
     )

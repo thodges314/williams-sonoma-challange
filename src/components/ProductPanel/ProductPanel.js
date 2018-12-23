@@ -12,6 +12,9 @@ const StyledPaper = withStyles({
     height: 326,
     width: 226,
     padding: 4,
+    marginLeft: 40,
+    marginRight: 40,
+    marginBottom: 40,
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .3)',
     '&:hover': {
       backgroundColor: 'rgb(205, 201, 201)'
