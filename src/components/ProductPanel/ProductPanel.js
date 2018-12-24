@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import unescape from 'lodash/unescape'
+import {convertCharCodes} from 'services/convertCharCodes'
 
 const StyledPaper = withStyles({
   root: {
@@ -58,7 +60,9 @@ export default class ProductPanel extends Component {
   render() {
     console.log('props in render', this.props)
     const {name} = this.props
+    console.log('unescape(name)', unescape(name))
     const {href} = this.props.thumbnail
+    const {high, low} = this.props.priceRange.selling
     return (
       <StyledPaper>
         <PictureDiv>
@@ -66,10 +70,10 @@ export default class ProductPanel extends Component {
         </PictureDiv>
         <Description>
           <div>
-            test
+            {convertCharCodes(name)}
           </div>
           <div>
-            price
+            {low} - {high}
           </div>
         </Description>
       </StyledPaper>
